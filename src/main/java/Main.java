@@ -55,7 +55,7 @@ public class Main {
         return status;
     }
 
-    private static void getHistory(ArrayList<History> historyList){
+    public static void getHistory(ArrayList<History> historyList){
         Iterator value = historyList.iterator();
         while (value.hasNext()){
             History transactionHistory = (History) value.next();
