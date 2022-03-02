@@ -33,8 +33,10 @@ public class Main {
         }
     }
 
-    private static void sendPoints(User sender, User receiver, int points){
-        if (sender.getPoints() > points){
+    protected static String sendPoints(User sender, User receiver, int points){
+        String status = "";
+
+        if (sender.getPoints() >= points){
             sender.setPoints(sender.getPoints() - points);
             receiver.setPoints(receiver.getPoints() + points);
 
@@ -42,10 +44,15 @@ public class Main {
             ArrayList<History> historyList = new ArrayList<>();
             historyList.add(new History(sender.getName(), receiver.getName(), sender.getId(), points, now));
             getHistory(historyList);
+
+            status = "Transaction succeed!";
         }
         else {
+            status = "Transaction failed.";
             System.out.println("Try Again! Your points are not enough");
         }
+
+        return status;
     }
 
     private static void getHistory(ArrayList<History> historyList){
