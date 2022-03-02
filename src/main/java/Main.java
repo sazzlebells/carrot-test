@@ -23,7 +23,7 @@ public class Main {
         showUsers(users);
     }
 
-    private static void showUsers(ArrayList<User> userList){
+    public static void showUsers(ArrayList<User> userList){
         Iterator value = userList.iterator();
         System.out.println("");
         System.out.println("User List Update");
