@@ -1,8 +1,10 @@
+import model.History;
 import model.User;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,7 +27,7 @@ class MainTest {
     }
 
     @Test
-    @DisplayName("Test the function of adding new users")
+    @DisplayName("Test the show user function")
     void testShowUser() {
         ArrayList<User> users = new ArrayList<User>();
         users.add(new User("Eva", 0, 500));
@@ -35,5 +37,17 @@ class MainTest {
 
         assertEquals(4, users.size());
         Main.showUsers(users);
+    }
+
+    @Test
+    @DisplayName("Test the get history function")
+    void testGetHistory(){
+        Date now = new Date();
+        ArrayList<History> historyList = new ArrayList<>();
+        historyList.add(new History("Eva", "Sarah", 0, 100, now));
+        historyList.add(new History("Winnona", "Sarah", 0, 100, now));
+
+        assertEquals(2, historyList.size());
+        Main.getHistory(historyList);
     }
 }
